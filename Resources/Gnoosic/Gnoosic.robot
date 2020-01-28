@@ -12,6 +12,6 @@ Get Artist
     SeleniumLibrary.Input Text  name:Fave02   Mustasch
     SeleniumLibrary.Input Text  name:Fave03   Royal Republic
     SeleniumLibrary.Submit Form
-    ${artist_result} =  SeleniumLibrary.Get Text id:result
+    ${artist_result} =   SeleniumLibrary.Get Text   id:result
     SeleniumLibrary.Close All Browsers
-    [Return] ${artist_result}
+    [Return]   ${artist_result}
