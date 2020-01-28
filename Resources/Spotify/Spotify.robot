@@ -12,14 +12,14 @@ ${IMG_PATH} =  ${EXECDIR}${/}Resources${/}Spotify
 
 Click 
  [Arguments] ${image} 
- ${location} = CustomKeywords. Get Location   ${image} 
- ${x} ${y}=   CustomKeywords. Center   ${location} 
- CustomKeywords .Click ${x}   ${y} 
+ ${location} = CustomKeywords.Get Location   ${image} 
+ ${x} ${y}=   CustomKeywords.Center   ${location} 
+ CustomKeywords.Click ${x}   ${y} 
 
 Double Click 
  [Arguments]  ${image} 
-  ${location} =  CustomKeywords. Get Location{ image} 
-  ${x}   ${y}=  CustomKeywords. Center ${location} 
+  ${location} =  CustomKeywords.Get Location    ${image} 
+  ${x}   ${y}=  CustomKeywords.Center ${location} 
  CustomKeywords.Double Click ${x}   ${y} 
 
 Minimize All Windows 
