@@ -7,6 +7,18 @@ Welcome to the repository for our workshop!
 ## Download
 
 If you are unfamiliar with git, I recommend you yo to download this repository as a zip file. Just click on the green *Clone or download* button and select *Download ZIP*.
+## Desktop Install
+
+install python
+Download chromedriver
+Chromedrive in same directory as code
+Add python,code and codefolder to the path
+Run requirements.txt from the code folder
+
+Vscode - install rf syntax and debugger, and python
+Install git and git desktop
+Pull code from git
+And path to git.exe to vscode
 
 ## Installation Package
 
