@@ -2,6 +2,7 @@
 Library  SeleniumLibrary
 
 *** Keywords ***
+
 Get Artist
     SeleniumLibrary.Open Browser  http://www.gnoosic.com/   Google Chrome
     SeleniumLibrary.Wait Until Element Is Visible   class:continue
