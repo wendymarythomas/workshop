@@ -44,3 +44,36 @@ Choose Top Result
  ${x}   ${y}= CustomKeywords.Center   ${location} 
  CustomKeywords.Click ${x}  ${Y+215} # NOTE OFFSET 
  Sleep 2
+
+Copy Link To Most Popular Song 
+ ${location} =   CustomKeywords. Get Location ${IMG_PATH}${/}popular.png 
+ ${x]   $[y} =   CustomKeywords. Center    ${location} 
+ CustomKeywords.Right Click ${x} ${Y+46}  #NOTE OFFSET 
+ Sleep 1 
+ ${location} =   Customkeywords.Get Location  ${IMG_PATH}${/}share.png 
+ ${x]   $[y} =   CustomKeywords.Center   ${location} 
+ CustomKeywords.Mouse Move  ${x} ${y} 
+ Sleep 1 
+ Click  ${IMG_PATH}${/}share.png 
+ ${link} =  CustomKeywords.Clip Get 
+ [Return]   ${link} 
+
+Close
+  Customkeywords.Get Location  ${IMG_PATH}${/}Close.png
+  ${x]   $[y} =   CustomKeywords.Center   ${location} 
+  CustomKeywords.Click ${x}  ${Y}
+
+Get Link To Most Popular Song 
+ [Arguments] ${artist} 
+ Minimize All Windows 
+# Clicks in the top right corner to deselect items on the desktop 
+ CustomKeywords.Click 1919  0
+ Sleep 1 
+ Open 
+ Search ${artist} 
+ Choose Top Result 
+ ${link} =  Copy Link To Most Popular Song
+ Sleep 2 
+ Close 
+ Sleep 2 
+ [Return]   ${link} 
