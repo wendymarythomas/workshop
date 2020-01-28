@@ -7,3 +7,5 @@ Resource  ${EXECDIR}${/}Resources${/}Gnoosic${/}Gnoosic.robot
 
 workflow
     Gnoosic.Get Artist
+    Database. Connect To Database
+    Database. Disconnect From Database 
