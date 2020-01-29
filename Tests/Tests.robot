@@ -9,3 +9,4 @@ workflow
     Gnoosic.Get Artist
     #Database. Connect To Database
     #Database. Disconnect From Database 
+    Spotify.Minimize All Windows 

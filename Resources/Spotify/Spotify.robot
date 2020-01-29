@@ -63,17 +63,17 @@ Close
   ${x]   $[y} =   CustomKeywords.Center   ${location} 
   CustomKeywords.Click ${x}  ${Y}
 
-Get Link To Most Popular Song 
+ Get Link To Most Popular Song 
  [Arguments] ${artist} 
- Minimize All Windows 
+Minimize All Windows 
 #Clicks in the top right corner to deselect items on the desktop 
- CustomKeywords.Click 1919  0
-  Sleep   1 
-  Open 
-  Search ${artist} 
-  Choose Top Result 
+CustomKeywords.Click   1919  0
+Sleep   1 
+Open 
+Search ${artist} 
+Choose Top Result 
  ${link} =  Copy Link To Most Popular Song
- Sleep   2 
- Close 
- Sleep  2 
+Sleep   2 
+Close 
+Sleep  2 
  [Return]   ${link} 
