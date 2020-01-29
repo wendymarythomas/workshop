@@ -13,7 +13,7 @@ ${IMG_PATH} =  ${EXECDIR}${/}Resources${/}Spotify
 Click 
  [Arguments] ${image} 
  ${location} = CustomKeywords.Get Location   ${image} 
- ${x} ${y}=   CustomKeywords.Center   ${location} 
+ ${x} ${y} =   CustomKeywords.Center   ${location} 
  CustomKeywords.Click ${x}   ${y} 
 
 Double Click 
@@ -29,12 +29,12 @@ Minimize All Windows
  Sleep  1
 
 Open 
- Double Click   {IMG_PATH}${/}icon.png
+ Double Click   ${IMG_PATH}${/}icon.png
  Sleep   10
 
 Search 
  [Arguments]    ${search_text}
- Click    $IMG_PATH}${/}search.png 
+ Click    ${IMG_PATH}${/}search.png 
  CustomKeywords.Input Text   ${search_text} 
  CustomKeywords.Press Special Key   enter 
  Sleep   2 
@@ -54,26 +54,26 @@ Copy Link To Most Popular Song
  ${x]   $[y} =   CustomKeywords.Center    ${location} 
  CustomKeywords.Mouse Move  ${x} ${y} 
  Sleep    1 
- Click  ${IMG_PATH}${/}share.png 
+ Click  ${IMG_PATH}${/}copy_link.png 
  ${link} =  CustomKeywords.Clip Get 
  [Return]   ${link} 
 
 Close
   Customkeywords.Get Location  ${IMG_PATH}${/}Close.png
-  ${x]   $[y} =   CustomKeywords.Center   ${location} 
-  CustomKeywords.Click ${x}  ${Y}
+  ${x}   ${y} =   CustomKeywords.Center   ${location} 
+  CustomKeywords.Click ${x}  ${y}
 
  Get Link To Most Popular Song 
- [Arguments] ${artist} 
-Minimize All Windows 
+[Arguments] ${artist} 
+ Minimize All Windows 
 #Clicks in the top right corner to deselect items on the desktop 
-CustomKeywords.Click   1919  0
-Sleep   1 
-Open 
-Search ${artist} 
-Choose Top Result 
+ CustomKeywords.Click   1919  0
+ Sleep   1 
+ Open 
+ Search ${artist} 
+ Choose Top Result 
  ${link} =  Copy Link To Most Popular Song
-Sleep   2 
-Close 
-Sleep  2 
+ Sleep   2 
+ Close 
+ Sleep  2 
  [Return]   ${link} 
