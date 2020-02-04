@@ -11,9 +11,9 @@ ${IMG_PATH} =  ${EXECDIR}${/}Resources${/}Spotify
 *** Keywords ***
 Click 
   [Arguments] ${image} 
-  ${location} = CustomKeywords.Get Location   ${image} 
+  ${location} = CustomKeywords.Get Location    ${image} 
   ${x} ${y} =   CustomKeywords.Center   ${location} 
-  CustomKeywords.Click ${x}   ${y} 
+   CustomKeywords.Click ${x}   ${y} 
 
 #Double Click 
 # [Arguments]  ${image} 
