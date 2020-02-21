@@ -139,3 +139,4 @@ dmypy.json
 output.xml
 log.html
 report.html
+Resources/launch.json

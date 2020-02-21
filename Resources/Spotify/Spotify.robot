@@ -1,13 +1,15 @@
 *** Settings ***
-Library  ${EXECDIR}${/}Resources${/}CustomKeywords.py
-
+#Library  ${EXECDIR}${/}Resources${/}CustomKeywords.py
+#Library  ${EXECDIR}${/}Resources${/}CustomKeywords.py
+Library  C:\\Users\\wthomas\\Documents\\GitHub\\workshop\\Resources\\CustomKeywords.py
 *** Variables ***
 #If you store all your images in Resources/Spotify_PO
 #then you can use this for your image paths
 #Example: ${IMG_PATH}${/}image_name.png
 #need to store the images that you will need to select on
-${IMG_PATH} =  ${EXECDIR}${/}Resources${/}Spotify
-
+#
+#${IMG_PATH} =  ${EXECDIR}${/}Resources${/}Spotify
+${IMG_PATH} =  C:\\Users\\wthomas\\Documents\\GitHub\\workshop\\Resources\\Spotify
 *** Keywords ***
 Click 
   [Arguments] ${image} 
