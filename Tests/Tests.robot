@@ -12,6 +12,7 @@ Resource  C:\\Users\\wthomas\\Documents\\GitHub\\workshop\\Resources\\Gnoosic\\G
 
 workflow
     Gnoosic.Get Artist
+     ${artist_result} = yes
     Database.Connect 
     Database.Disconnect  
     Spotify.Minimize All Windows 
