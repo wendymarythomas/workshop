@@ -8,17 +8,21 @@ Resource  C:\\Users\\wthomas\\Documents\\GitHub\\workshop\\Resources\\Spotify\\s
 #Resource  ${EXECDIR}${/}Resources${/}Gnoosic${/}Gnoosic.robot
 Resource  C:\\Users\\wthomas\\Documents\\GitHub\\workshop\\Resources\\Gnoosic\\Gnoosic.robot
 
+
+
 *** Variables ***
-${URL}          http://blazedemo.com/
-${BROWSER}      Chrome
-Set Global Variable   ${artist_result}   hello 
+#${URL}          http://blazedemo.com/
+#${BROWSER}      Chrome
+${artist_result}  myband
+*** Keywords ***
 
 *** Test Cases ***
+setup2
+     Set Global Variable  ${artist_result}
 
 workflow
-
-
     Gnoosic.Get Artist
-    Database.Connect   ${artist_result}
+   # Database.Connect   ${artist_result}
+   # Database.Connect   ${banana}
     Database.Disconnect  
     Spotify.Minimize All Windows 
