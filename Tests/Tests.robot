@@ -10,6 +10,7 @@ Library  SeleniumLibrary
 
 *** Variables ***
 ${URL}          http://www.gnoosic.com/
+${spotifyURL}   https://accounts.spotify.com/en/login/?_locale=en-GB&continue=https:%2F%2Fwww.spotify.com%2Fuk%2Faccount%2Foverview%2F
 ${BROWSER}      Google Chrome
 ${artistresult}  
 ${artist1}     The Killers
@@ -32,14 +33,18 @@ Get Artist  [Arguments]    ${artist1}   ${artist2}    ${artist3}
     [Return]   ${artistresult}
     #BuiltIn.Return from Keyword   ${artistresult}
     SeleniumLibrary.Close All Browsers
- 
+
+
+Get Spotify  [Arguments]    ${artistresult}
+    
+    Run     Spotify.exe        C:\Users\wthomas\AppData\Roaming\Spotify
+  #  SeleniumLibrary.Open Browser  ${spotifyURL}   ${BROWSER}
+  #  SeleniumLibrary.Wait Until Element Is Visible   class:a.btn.btn-block btn-facebook ng-binding
+  #  SeleniumLibrary.Click Element   class:'a.btn.btn-block btn-facebook ng-binding'
+  #  SeleniumLibrary.Close All Browsers
 *** Test Cases ***
-#setupglobals
-  # Set Global Variable  ${artistresult}
 
 workflow
-   ${artistresult} =    Get Artist  ${artist1}   ${artist2}   ${artist3}  
-   # Database.Connect   ${artist_result}
-   # Database.Connect   ${banana}
-    Database.Disconnect  
-    Spotify.Minimize All Windows 
+   ${artistresult} =    Get Artist  ${artist1}   ${artist2}   ${artist3} 
+   Get Spotify    ${artistresult} 
+   
