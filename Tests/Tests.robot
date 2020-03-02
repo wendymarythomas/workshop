@@ -5,8 +5,11 @@ Resource  C:\\Users\\wthomas\\Documents\\GitHub\\workshop\\Resources\\Database\\
 Resource  C:\\Users\\wthomas\\Documents\\GitHub\\workshop\\Resources\\Spotify\\spotify.robot
 #Resource  ${EXECDIR}${/}Resources${/}Gnoosic${/}Gnoosic.robot
 Resource  C:\\Users\\wthomas\\Documents\\GitHub\\workshop\\Resources\\Gnoosic\\Gnoosic.robot
+#spotifypath
+Resource  C:\\Users\\wthomas\\Documents\\GitHub\\workshop\\Resources\\Gnoosic\\Gnoosic.robot
 
 Library  SeleniumLibrary
+Library  AutoItLibrary
 
 *** Variables ***
 ${URL}          http://www.gnoosic.com/
@@ -16,6 +19,8 @@ ${artistresult}
 ${artist1}     The Killers
 ${artist2}     Mustasch
 ${artist3}     Royal Republic
+${notepad++} | C:\\Program Files\\Notepad++\\notepad++.exe
+${Spotify}   C:\\Users\\wthomas\\AppData\\Roaming\\Spotify\\Spotify.exe
 
 
 *** Keywords ***
@@ -36,8 +41,9 @@ Get Artist  [Arguments]    ${artist1}   ${artist2}    ${artist3}
 
 
 Get Spotify  [Arguments]    ${artistresult}
-    
-    Run     Spotify.exe        C:\Users\wthomas\AppData\Roaming\Spotify
+    AutoItLibrary.Run    ${Spotify}
+
+    #Run   Spotify.exe  C:\\Users\\wthomas\\AppData\\Roaming\\Spotify\\
   #  SeleniumLibrary.Open Browser  ${spotifyURL}   ${BROWSER}
   #  SeleniumLibrary.Wait Until Element Is Visible   class:a.btn.btn-block btn-facebook ng-binding
   #  SeleniumLibrary.Click Element   class:'a.btn.btn-block btn-facebook ng-binding'
