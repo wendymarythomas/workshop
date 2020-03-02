@@ -22,6 +22,8 @@ Also need UIASpy - UI Automation Spy Tool for the Windows element
 
 from inside the repository folder.
 
+https://www.autoitscript.com/forum/topic/196833-uiaspy-ui-automation-spy-tool/
+
 ---
 
 ## Optional - Virtual Enviroment
