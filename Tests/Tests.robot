@@ -19,11 +19,11 @@ ${artistresult}
 ${artist1}     The Killers
 ${artist2}     Mustasch
 ${artist3}     Royal Republic
-${notepad++} | C:\\Program Files\\Notepad++\\notepad++.exe
 ${Spotify}   C:\\Users\\wthomas\\AppData\\Roaming\\Spotify\\Spotify.exe
 
 
 *** Keywords ***
+#these are code functions/modules
 
 Get Artist  [Arguments]    ${artist1}   ${artist2}    ${artist3}
     SeleniumLibrary.Open Browser  ${URL}   ${BROWSER}
@@ -36,20 +36,17 @@ Get Artist  [Arguments]    ${artist1}   ${artist2}    ${artist3}
     SeleniumLibrary.Submit Form
     ${artistresult} =   SeleniumLibrary.Get Text   id:result  
     [Return]   ${artistresult}
-    #BuiltIn.Return from Keyword   ${artistresult}
     SeleniumLibrary.Close All Browsers
-
 
 Get Spotify  [Arguments]    ${artistresult}
     AutoItLibrary.Run    ${Spotify}
+     AutoItLibrary.WinWaitActive  Spotify Premium
+     AutoItLibrary.send    SomeText   Search Spotify
+     AutoItLibrary.WinClose  Spotify Premium
 
-    #Run   Spotify.exe  C:\\Users\\wthomas\\AppData\\Roaming\\Spotify\\
-  #  SeleniumLibrary.Open Browser  ${spotifyURL}   ${BROWSER}
-  #  SeleniumLibrary.Wait Until Element Is Visible   class:a.btn.btn-block btn-facebook ng-binding
-  #  SeleniumLibrary.Click Element   class:'a.btn.btn-block btn-facebook ng-binding'
-  #  SeleniumLibrary.Close All Browsers
+
 *** Test Cases ***
-
+#runs the automation
 workflow
    ${artistresult} =    Get Artist  ${artist1}   ${artist2}   ${artist3} 
    Get Spotify    ${artistresult} 
