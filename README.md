@@ -15,7 +15,7 @@ We have included a installation file for the libraries that we suggest that you 
 To install the package in your current python enviroment, all you need to do is to run:
 
 ```
-pip install -r requirements.txt, added pip install robotframework-autoitlibrary for the run commands in windows
+pip install -r requirements.txt, added pip install robotframework-autoitlibrary for the run commands in windows, also pip install --upgrade setuptools to upgrade setuptools
 ```
 
 from inside the repository folder.
