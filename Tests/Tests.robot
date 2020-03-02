@@ -49,5 +49,5 @@ Get Spotify  [Arguments]    ${artistresult}
 #runs the automation
 workflow
    ${artistresult} =    Get Artist  ${artist1}   ${artist2}   ${artist3} 
-   Get Spotify    ${artistresult} 
+  # Get Spotify    ${artistresult} 
    
