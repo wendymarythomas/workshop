@@ -8,7 +8,8 @@ selenium==3.141.0
 urllib3==1.25.7 - reinstalled so probably a later verison
 virtualenv==16.7.9
 wrapt==1.11.2
-
+Pillow==7.0.0
+pywin32==227
 new stuff
 pip install --upgrade robotframework-datadriver
 
