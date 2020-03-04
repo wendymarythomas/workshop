@@ -8,8 +8,25 @@ Resource  C:\\Users\\wthomas\\Documents\\GitHub\\workshop\\Resources\\Gnoosic\\G
 #spotifypath
 Resource  C:\\Users\\wthomas\\Documents\\GitHub\\workshop\\Resources\\Gnoosic\\Gnoosic.robot
 
+*** Settings ***
 Library  SeleniumLibrary
 Library  AutoItLibrary
+Library    DataDriver
+...    file=${None}
+...    encoding=cp1252
+...    dialect=Excel-EU
+...    delimiter=;
+...    quotechar="
+...    escapechar=\\\\
+...    doublequote=True
+...    skipinitialspace=False
+...    lineterminator=\\r\\n
+...    sheet_name=0
+...    reader_class=${None}
+...    file_search_strategy=PATH
+...    file_regex=(?i)(.*?)(\\.csv)
+...    include=${None}
+...    exclude=${None}
 
 *** Variables ***
 ${URL}          http://www.gnoosic.com/
@@ -22,8 +39,13 @@ ${artist3}     Royal Republic
 ${Spotify}   C:\\Users\\wthomas\\AppData\\Roaming\\Spotify\\Spotify.exe
 
 
+
+
 *** Keywords ***
 #these are code functions/modules
+
+
+
 
 Get Artist  [Arguments]    ${artist1}   ${artist2}    ${artist3}
     SeleniumLibrary.Open Browser  ${URL}   ${BROWSER}
@@ -38,11 +60,11 @@ Get Artist  [Arguments]    ${artist1}   ${artist2}    ${artist3}
     [Return]   ${artistresult}
     SeleniumLibrary.Close All Browsers
 
-Get Spotify  [Arguments]    ${artistresult}
-    AutoItLibrary.Run    ${Spotify}
-     AutoItLibrary.WinWaitActive  Spotify Premium
-     AutoItLibrary.send    SomeText   Search Spotify
-     AutoItLibrary.WinClose  Spotify Premium
+#Get Spotify  [Arguments]    ${artistresult}
+  #  AutoItLibrary.Run    ${Spotify}
+  #   AutoItLibrary.WinWaitActive  Spotify Premium
+  #   AutoItLibrary.send    SomeText   Search Spotify
+  #   AutoItLibrary.WinClose  Spotify Premium
 
 
 *** Test Cases ***
