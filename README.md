@@ -16,9 +16,13 @@ To install the package in your current python enviroment, all you need to do is 
 
 ```
 pip install -r requirements.txt, added pip install robotframework-autoitlibrary  AS AN ADMIN IN DOS for the run commands in windows, also pip install --upgrade setuptools to upgrade setuptools
+
+Also need UIASpy - UI Automation Spy Tool for the Windows element
 ```
 
 from inside the repository folder.
+
+https://www.autoitscript.com/forum/topic/196833-uiaspy-ui-automation-spy-tool/
 
 ---
 
