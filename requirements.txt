@@ -1,21 +1,17 @@
 
-Needed libraries
-
+MouseInfo==0.1.2
+Pillow==7.0.0
+psycopg2==2.8.4
+PyAutoGUI==0.9.48
+PyGetWindow==0.0.8
+PyMsgBox==1.0.7
+pyperclip==1.7.0
+PyRect==0.1.4
+PyScreeze==0.1.25
+PyTweening==1.0.3
 robotframework==3.1.2
-robotframework-autoitlibrary==1.2.4
+robotframework-databaselibrary==1.2.4
 robotframework-seleniumlibrary==4.1.0
 selenium==3.141.0
-urllib3==1.25.7 - reinstalled so probably a later verison
-virtualenv==16.7.9
-wrapt==1.11.2
-Pillow==7.0.0
-pywin32==227
-new stuff
-pip install --upgrade robotframework-datadriver
-
-Excel Support
-For file support of xls or xlsx file you need to install the extra XLS or the dependencies. It contains the dependencies of pandas, numpy and xlrd. Just add [XLS] to your installation. New since version 3.6.
-
-
-pip install --upgrade robotframework-datadriver
+urllib3==1.25.7
 
