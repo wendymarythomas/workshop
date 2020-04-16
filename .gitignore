@@ -144,3 +144,6 @@ chromedriver.exe
 log.html
 output.xml
 report.html
+
+# Test Files
+TEST*
