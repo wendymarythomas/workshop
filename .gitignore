@@ -136,3 +136,11 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Applications
+chromedriver.exe
+
+# Logs
+log.html
+output.xml
+report.html
