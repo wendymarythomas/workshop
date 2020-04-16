@@ -6,5 +6,6 @@ Resource  ${EXECDIR}${/}Resources${/}Gnoosic${/}Gnoosic.robot
 Library     Gnoosic.robot
 *** Test Cases ***
 Search Gnoosic
-    ${retrieved-artist} =   Get Artist
+    ${retrieved-artist} =   Get Artist  Starset     Hidden Citizens     Unsecret
+    Log to console  ${retrieved-artist}
     
