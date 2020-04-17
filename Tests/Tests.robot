@@ -5,7 +5,7 @@ Resource  ${EXECDIR}${/}Resources${/}Gnoosic${/}Gnoosic.robot
 
 *** Keywords ***
 Search Gnoosic
-    ${retrieved-artist}=   Get Artist  Starset     Hidden Citizens     Unsecret
+    ${retrieved-artist}=   Get Artist  Atreyu     Globus     Les Friction
     [Return]    ${retrieved-artist}
 
 *** Test Cases ***
@@ -23,5 +23,17 @@ Full Robot Run
     Search      ${artist}
     Choose Top Result
     ${song-link}=   Copy Link
-    Log to console      ${song-link}
     Close
+    Connect
+    # Add Song  ${song-link}
+    ${play-link}=       Get Song  2
+    Log to console      ${play-link}
+    Open
+    Play Song  ${play-link}
+
+# Database Test
+    # Connect
+    # ${song-link}=       Get Song  1
+    # Log to console      ${song-link}
+    # Disconnect
+

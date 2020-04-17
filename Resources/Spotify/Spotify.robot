@@ -93,3 +93,8 @@ Test Get Image Location
 Test Invoke Location
     Test Get Image Location     ${IMG_PATH}${/}TEST-Spotify-Starset-Top-Result-Search.png
     Test Get Image Location     ${IMG_PATH}${/}Spotify-Top-Result-Search.png
+
+Play Song
+    [Arguments]     ${song-link}
+    Search  ${song-link}
+    CustomKeywords.Press Special Key    return
