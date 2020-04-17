@@ -14,6 +14,11 @@ Click
     ${x}    ${y}=   CustomKeywords.Center       ${location}
     CustomKeywords.Click    ${x}    ${y}
 
+Click With Offset
+    [Arguments]     ${image}=${IMG_PATH}${/}TEST-Spotify-Starset-Top-Result-Search.png      ${x-offset}=0   ${y-offset}=0
+    ${location}=    CustomKeywords.Get Location     ${image}
+    ${x}    ${y}=   CustomKeywords.Center       ${location}
+    CustomKeywords.Click    ${x+${x-offset}}    ${y+${y-offset}}
 
 Double Click
     [Arguments]     ${image}
@@ -52,13 +57,30 @@ Search
     Click  ${IMG_PATH}${/}Spotify-Search.png
     CustomKeywords.Input Text   ${artist}
     CustomKeywords.Press Special Key    return
-    Sleep   2
+    Sleep   5
 
 Choose Top Result
+    Click With Offset  ${IMG_PATH}${/}Spotify-Top-Result-Search.png  0  258
+    Sleep   4
 
 Copy Link
+    ${location_tr}=    CustomKeywords.Get Location     ${IMG_PATH}${/}Spotify-Popular.png
+    ${x_tr}    ${y_tr}=   CustomKeywords.Center       ${location_tr}
+    CustomKeywords.Right Click     ${x_tr}    ${y_tr+25}
+    Sleep   2
+    ${location_s}=    CustomKeywords.Get Location     ${IMG_PATH}${/}Spotify-Share.png
+    ${x_s}    ${y_s}=   CustomKeywords.Center       ${location_s}
+    CustomKeywords.Mouse Move     ${x_s}    ${y_s}
+    Sleep   2
+    ${location_cl}=    CustomKeywords.Get Location     ${IMG_PATH}${/}Spotify-Copy-Song-Link.png
+    ${x_cl}    ${y_cl}=   CustomKeywords.Center       ${location_cl}
+    CustomKeywords.Click     ${x_cl}    ${y_cl}
+    ${song_link}=   CustomKeywords.Clip Get
+    [Return]    ${song_link}
 
 Close
+    Click  ${IMG_PATH}${/}Spotify-Close.png
+    Sleep   2
 
 
 Test Get Image Location
@@ -70,3 +92,4 @@ Test Get Image Location
 
 Test Invoke Location
     Test Get Image Location     ${IMG_PATH}${/}TEST-Spotify-Starset-Top-Result-Search.png
+    Test Get Image Location     ${IMG_PATH}${/}Spotify-Top-Result-Search.png

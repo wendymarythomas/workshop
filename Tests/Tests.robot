@@ -3,12 +3,25 @@ Resource  ${EXECDIR}${/}Resources${/}Database${/}Database.robot
 Resource  ${EXECDIR}${/}Resources${/}Spotify${/}Spotify.robot
 Resource  ${EXECDIR}${/}Resources${/}Gnoosic${/}Gnoosic.robot
 
+*** Keywords ***
+Search Gnoosic
+    ${retrieved-artist}=   Get Artist  Starset     Hidden Citizens     Unsecret
+    [Return]    ${retrieved-artist}
+
 *** Test Cases ***
-# Search Gnoosic
-    # ${retrieved-artist} =   Get Artist  Starset     Hidden Citizens     Unsecret
-    # Log to console  ${retrieved-artist}
-    
-Get Image Location Test
+# Search Spotify
+    # Open
+    # Search      Hidden Citizens
+    # Choose Top Result
+    # ${song-link}=   Copy Link
+    # Log to console      ${song-link}    
+
+
+Full Robot Run
+    ${artist}=  Search Gnoosic
     Open
-    Search
-    Test Invoke Location
+    Search      ${artist}
+    Choose Top Result
+    ${song-link}=   Copy Link
+    Log to console      ${song-link}
+    Close
