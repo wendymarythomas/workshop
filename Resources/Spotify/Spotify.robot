@@ -49,6 +49,7 @@ Open
     Minimize All Windows
     #Double Click  ${IMG_PATH}${/}Spotify-Logo.png
     Open Via Shorcut
+    Sleep   3
     Maximise Current Window
     Sleep   5
 

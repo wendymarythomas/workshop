@@ -2,31 +2,30 @@
 Resource  ${EXECDIR}${/}Resources${/}Database${/}Database.robot
 Resource  ${EXECDIR}${/}Resources${/}Spotify${/}Spotify.robot
 Resource  ${EXECDIR}${/}Resources${/}Gnoosic${/}Gnoosic.robot
-
-*** Keywords ***
-Search Gnoosic
-    ${retrieved-artist}=   Get Artist  Atreyu     Globus     Les Friction
-    [Return]    ${retrieved-artist}
+Resource  ${EXECDIR}${/}Resources${/}Excel${/}Excel.robot
 
 *** Test Cases ***
 # Search Spotify
     # Open
     # Search      Hidden Citizens
     # Choose Top Result
-    # ${song-link}=   Copy Link
-    # Log to console      ${song-link}    
+    # ${song-link}=   Copy Link 
 
 
 Full Robot Run
-    ${artist}=  Search Gnoosic
+    ${wsBands}=     Get Worksheet
+    ${recommendedArtist} =      Get Artist  ${wsBands['A2'].value}  ${wsBands['B2'].value}  ${wsBands['C2'].value}
     Open
-    Search      ${artist}
+    Search      ${recommendedArtist}
+    ${wsBands['D2']}=      Set Variable    ${recommendedArtist}
     Choose Top Result
     ${song-link}=   Copy Link
     Close
-    Connect
+    # Save Worksheet  ${wsBands}
+    # Connect
     # Add Song  ${song-link}
-    ${play-link}=       Get Song  2
+    # Disconnect
+    ${play-link}=       Get Song  5
     Log to console      ${play-link}
     Open
     Play Song  ${play-link}
