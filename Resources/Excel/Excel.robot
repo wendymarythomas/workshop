@@ -1,5 +1,6 @@
 *** Settings ***
 Library     openpyxl
+Library     ${EXECDIR}${/}Resources${/}Excel${/}CustomExcel.py
 
 *** Variables ***
 ${WB_PATH} =  ${EXECDIR}${/}Resources${/}Excel
@@ -13,9 +14,10 @@ Get Worksheet
 
 Save Worksheet
     [Arguments]     ${wsBands}
+    Log to console      ${wsBands['D2'].value}
     ${wbBands} =   Load Workbook   ${WB_PATH}${/}Favourite Bands.xlsx
-    ${wbBands['Bands']} =      Set Variable    ${wsBands}
-    ${wbBands.save}
+    ${wbBands['Bands']['D2'].value} =      Set Variable    ${wsBands['D2'].value}
+    Save workbook   ${wbBands}
 
 
 

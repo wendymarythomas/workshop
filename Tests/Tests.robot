@@ -17,15 +17,15 @@ Full Robot Run
     ${recommendedArtist} =      Get Artist  ${wsBands['A2'].value}  ${wsBands['B2'].value}  ${wsBands['C2'].value}
     Open
     Search      ${recommendedArtist}
-    ${wsBands['D2']}=      Set Variable    ${recommendedArtist}
+    ${wsBands['D2'].value}=      Set Variable    ${recommendedArtist}
     Choose Top Result
     ${song-link}=   Copy Link
     Close
-    # Save Worksheet  ${wsBands}
-    # Connect
+    Save Worksheet  ${wsBands}
+    Connect
     # Add Song  ${song-link}
-    # Disconnect
     ${play-link}=       Get Song  5
+    Disconnect
     Log to console      ${play-link}
     Open
     Play Song  ${play-link}
