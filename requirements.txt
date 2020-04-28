@@ -14,4 +14,7 @@ robotframework-databaselibrary==1.2.4
 robotframework-seleniumlibrary==4.1.0
 selenium==3.141.0
 urllib3==1.25.7
+openpyxl==3.0.3
+keyring==21.2.0
+
 
