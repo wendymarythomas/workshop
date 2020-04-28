@@ -12,23 +12,23 @@ Resource  ${EXECDIR}${/}Resources${/}Excel${/}Excel.robot
     # ${song-link}=   Copy Link 
 
 
-Full Robot Run
-    ${wsBands}=     Get Worksheet
-    ${recommendedArtist} =      Get Artist  ${wsBands['A2'].value}  ${wsBands['B2'].value}  ${wsBands['C2'].value}
-    Open
-    Search      ${recommendedArtist}
-    ${wsBands['D2'].value}=      Set Variable    ${recommendedArtist}
-    Choose Top Result
-    ${song-link}=   Copy Link
-    Close
-    Save Worksheet  ${wsBands}
-    Connect
+# Full Robot Run
+    # ${wsBands}=     Get Worksheet
+    # ${recommendedArtist} =      Get Artist  ${wsBands['A2'].value}  ${wsBands['B2'].value}  ${wsBands['C2'].value}
+    # Open
+    # Search      ${recommendedArtist}
+    # ${wsBands['D2'].value}=      Set Variable    ${recommendedArtist}
+    # Choose Top Result
+    # ${song-link}=   Copy Link
+    # Close
+    # Save Worksheet  ${wsBands}
+    # Connect
     # Add Song  ${song-link}
-    ${play-link}=       Get Song  5
-    Disconnect
-    Log to console      ${play-link}
-    Open
-    Play Song  ${play-link}
+    # ${play-link}=       Get Song  5
+    # Disconnect
+    # Log to console      ${play-link}
+    # Open
+    # Play Song  ${play-link}
 
 # Database Test
     # Connect
@@ -36,3 +36,15 @@ Full Robot Run
     # Log to console      ${song-link}
     # Disconnect
 
+Demo Run
+    ${wsBands}=     Get Worksheet
+    ${recommendedArtist} =      Get Artist  ${wsBands['A3'].value}  ${wsBands['B3'].value}  ${wsBands['C3'].value}
+    Open
+    Log In
+    Search      ${recommendedArtist}
+    ${wsBands['D3'].value}=      Set Variable    ${recommendedArtist}
+    Choose Top Result
+    ${song-link}=   Copy Link
+    Log Out
+    Close
+    Save Worksheet  ${wsBands}

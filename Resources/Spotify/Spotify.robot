@@ -1,5 +1,6 @@
 *** Settings ***
 Library  ${EXECDIR}${/}Resources${/}CustomKeywords.py
+Library  keyring
 
 *** Variables ***
 # If you store all your images in Resources/Spotify_PO
@@ -98,4 +99,27 @@ Test Invoke Location
 Play Song
     [Arguments]     ${song-link}
     Search  ${song-link}
+    CustomKeywords.Press Special Key    return
+
+Clear Field
+    CustomKeywords.Key Down     ctrl
+    CustomKeywords.Press Special Key    a
+    CustomKeywords.Key Up       ctrl
+    CustomKeywords.Press Special Key    del
+
+Log In
+    ${credentials}=     Get Credential  Spotify     username
+    Log to Console  ${credentials.username}
+    Click With Offset  ${IMG_PATH}${/}Spotify-Log-In-Logo.png  0  0
+    Click With Offset  ${IMG_PATH}${/}Spotify-Log-In-Email.png  -50  0
+    Clear Field
+    CustomKeywords.Input Text   ${credentials.username}
+    Click With Offset  ${IMG_PATH}${/}Spotify-Log-In-Password.png  0  0
+    CustomKeywords.Input Text   ${credentials.password}
+    Click With Offset  ${IMG_PATH}${/}Spotify-Log-In-Button.png  0  0
+
+Log Out
+    Click With Offset  ${IMG_PATH}${/}Spotify-Menu-Drop-Down.png  0  0
+    Sleep   1
+    Double Click  ${IMG_PATH}${/}Spotify-Log-Out.png
     CustomKeywords.Press Special Key    return
